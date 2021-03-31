@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF8">
+    <title> Muddy Paws Adventure Gear </title>
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="static/css/style4.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://unpkg.com/js-image-zoom@0.7.0/js-image-zoom.js" type="application/javascript"></script>
+    <script src="static/js/main.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="nav-item logo-container">
+        <a id="logo"><img src="static/images/paws.png"></a>
+        <div id=name>
+          <img src="static/images/website-title.png">
+        </div>
+      </div>
+    
+      <div class="nav-item">
+        <ul class="nav-links body-text">
+          <li class="home"><a href="index.html"> Home </a></li>
+          <li class="shop-cat"><a href="product-catalog.html"> Shop Cats </a></li>
+          <li class="shop-dog"><a href="product-catalog.html"> Shop Dogs </a></li>
+          <li class="contact"><a href="back-to-home.html"> Contact </a></li>
+        </ul>
+      </div>
+
+      <div class="nav-item login">
+        <div class="signin center text-color body-text"> sign in </div>
+        <div id="search"><img src="static/images/search.png"></div>
+         <div class="cart">
+            <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
+            <span class="count"> 0 </span>
+          </div>
+        </div>
+    </header>
+
+    <div class="product-info">
+        <div class="item-image-parent">
+            <div class="item-list-vertical">
+                <div class="thumb-box">
+                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
+                </div>
+            </div>
+
+            <div id="img-zoom-container">
+                <img src="static/images/dog_harness.jpg" width="50px"/>
+            </div>
+            <script>
+              var options = {
+                width: 600,
+                zoomWidth: 500,
+                offset: {vertical: 0, horizontal: 10}
+              };
+              new ImageZoom(document.getElementById("img-zoom-container"), options);
+            
+            </script>
+
+        </div>
+
+        <!-- information about product: name, price, description, options, add to cart-->
+        <div class="item-info-parent">
+            <!-- main info -->
+            <h1> Dog GPS Tracker </h1>
+            <div class="price-rating">
+                <p><span id="price"> $15.55 </span></p>
+                <div class="star-rating">
+                    <span>★★★★</span>★            
+                </div>
+                <p> 2 ratings </p>
+            </div>
+            
+            <div class="description">
+                <p>This is the most popular dog GPS tracker on Muddy Paws! It is light weighted, durable, and comfortable. You can choose different sizes but this product also has adjustable neck and chest to better fit your dog’s body. </p>
+            </div>
+
+            <div class="select-items">
+                <div class="change-size">
+                  <label>Size:</label>
+                    <ul class="menu" id="change-size">
+                        <li id="0" onclick="get_size(this.id)"> Tiny </li>
+                        <li id="1" onclick="get_size(this.id)"> Small </li>
+                        <li id="2" onclick="get_size(this.id)"> Medium </li>
+                        <li id="3" onclick="get_size(this.id)"> Large </li>
+                    </ul>
+                </div>
+                <br>
+
+                <div class="change-color">
+                  <label>Color:</label>
+                    <ul class="menu" id="change-color">
+                        <li id="0" onclick="get_color(this.id)"> Strawberry </li>
+                        <li id="1" onclick="get_color(this.id)"> Blackberry </li>
+                        <li id="2" onclick="get_color(this.id)"> Crazyberry </li>
+                        <li id="3" onclick="get_color(this.id)"> Fire Orange </li>
+                    </ul>
+                </div>
+
+                <br><br><br>
+                <div class="quantity">
+                    <label>Quantity:</label>
+                    <div class="product-quantity">
+                      <input type="number" value="1" min="1" onchange="updateQuantity(this);">
+                    </div>
+                </div>
+                
+                <br>
+                <div class="purchase">
+                    <button class="cart-btn">Add To Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="check-cart" onclick="location.href='shopping_cart.html';">Check My Cart</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="recommend">
+        <h1> Recommend </h1>
+        <ul class="menu">
+            <li> dog harness 2 </li>
+            <li> dog harness 3 </li>
+          </ul>
+    </div>
+
+    
+    <div class="reviews-wrapper">
+        <h1> Reviews </h1>
+        <div class="reviews">
+            <img id="user-photo" src="static/images/cat_harness2.jpg" width="100px">
+            <div class="review">
+                <h3>Very good! </h3>
+                <div class="star-rating">
+                    <span>★★★★</span>★            
+                </div>  
+                <span class="comments"> Very good! </span>
+                <span class="author">By kaitmurphy  on March 10th, 2021</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+      <div id="subscript">
+        <div class="subscription">
+          <input id="input-box" type="email" name="emailaddress", value="email address" onclick="hidevalue()">
+          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
+        </div>
+        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
+      </div>
+    </footer>
+  </body>
+
+</html>

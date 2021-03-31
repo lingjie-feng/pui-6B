@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Muddy Paws Adventure Gear </title>
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="static/css/style2.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    <!-- JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <header>
+      <div class="nav-item logo-container">
+        <a id="logo"><img src="static/images/paws.png"></a>
+        <div id=name>
+          <img src="static/images/website-title.png">
+        </div>
+      </div>
+    
+      <div class="nav-item">
+        <ul class="nav-links body-text">
+          <li class="home"><a href="index.html"> Home </a></li>
+          <li class="shop-cat"><a href="product-catalog.html"> Shop Cats </a></li>
+          <li class="shop-dog"><a href="product-catalog.html"> Shop Dogs </a></li>
+          <li class="contact"><a href="back-to-home.html"> Contact </a></li>
+        </ul>
+      </div>
+
+      <div class="nav-item login">
+        <div class="signin center text-color body-text"> sign in </div>
+        <div id="search"><img src="static/images/search.png"></div>
+        <div id="cart"><img src="static/images/cart.png" onclick="location.href='shopping_cart.html';"> </div>
+      </div>
+    </header>
+
+    <div class="body-content-2 body-text">
+      <!-- class categories starts here -->
+      <div class="categories">
+        <p><strong> Categories </strong></p>
+        <form>
+          <label><input type="checkbox" onclick="filtering()" name="it-category" value="helmets" id="helmets" /> Helmets </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-category" value="food-storage" id="food-storage" /> Food storage attachment </label><br> 
+          <label><input type="checkbox" onclick="filtering()" name="it-category" value="water-storage" id="water-storage" /> Water storage attachment </label><br>                                   
+          <label><input type="checkbox" onclick="filtering()" name="it-category" value="backpack" id="backpack" /> Backpack </label><br>   
+          <label><input type="checkbox" onclick="filtering()" name="it-category" value="gps-tracker" id="gps-tracker" /> GPS Tracker </label>
+        </form>
+        <p><strong> Activities </strong></p>
+        <form>
+          <label><input type="checkbox" onclick="filtering()" name="it-act" value="hiking" id="hiking" /> Hiking </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-act" value="camping" id="camping" /> Camping </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-act" value="climbing" id="climbing" /> Climbing </label><br> 
+          <label><input type="checkbox" onclick="filtering()" value="other" id="other" /> Other </label>
+        </form>  
+        <p><strong> Price </strong></p>
+        <form>
+          <label><input type="checkbox" onclick="filtering()" name="it-price" value="030" id="030" /> $0 - 30 </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-price" value="3060" id="3060" /> $30 - 60 </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-price" value="60100" id="60100" /> $60 - 100 </label><br>
+          <label><input type="checkbox" onclick="filtering()" name="it-price" value="100+" id="100+" /> $100 + </label><br>         
+        </form>
+    </div>
+    <!-- class categories ends here -->
+
+    <!-- items start -->
+    <div class="items">
+      <div class="desc">
+      <div class="content">
+        <div class="product-grid product-grid--flexbox">
+          <div class="product-grid__wrapper">
+            <!-- Product list start here -->
+    
+            <!-- Single product -->
+            <div class="product-grid__product-wrapper" data-id="p-1" data-category="helmets hiking 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog-helmet.jpg" alt="Img" class="product-grid__img"  onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Helmet Hiking </div>
+                  <div class="product-grid__price center"> $12.34 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+            <!-- end Single product -->
+  
+            <div class="product-grid__product-wrapper" data-id="p-2" data-category="helmets camping 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog-helmet.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Helmet Camping </div>
+                  <div class="product-grid__price center"> $12.34 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+    
+            <div class="product-grid__product-wrapper" data-id="p-3" data-category="helmets hiking 3060">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog-helmet.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Helmet Hiking </div>
+                  <div class="product-grid__price center"> $52.00 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+  
+            <div class="product-grid__product-wrapper" data-id="p-4" data-category="water-storage camping 3060">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_harness.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Water Storage Attachment Camping </div>
+                  <div class="product-grid__price center"> $49.13 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+    
+            <div class="product-grid__product-wrapper" data-id="p-5" data-category="water-storage hiking 60100">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_harness.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Water Storage Attachment Hiking </div>
+                  <div class="product-grid__price center"> $99.99 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+    
+            <div class="product-grid__product-wrapper" data-id="p-6" data-category="water-storage camping 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_harness.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Water Storage Attachment Camping 2</div>
+                  <div class="product-grid__price center"> $18.20 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+  
+            <div class="product-grid__product-wrapper" data-id="p-7" data-category="food-storage hiking 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_harness4.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Food Storage Attachment Hiking  </div>
+                  <div class="product-grid__price center"> $21.44 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+    
+            <div class="product-grid__product-wrapper" data-id="p-8" data-category="food-storage climbing 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_harness4.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog Food Storage Attachment Hiking </div>
+                  <div class="product-grid__price center"> $06.33 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+    
+            <div class="product-grid__product-wrapper" data-id="p-9" data-category="gps-tracker other 030">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_gps_1.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog GPS Tracker </div>
+                  <div class="product-grid__price center"> $15.55 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+            
+            <div class="product-grid__product-wrapper" data-id="p-10" data-category="gps-tracker camping 3060">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_gps_4.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog GPS Tracker Camping </div>
+                  <div class="product-grid__price center"> $33.33 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart </div>
+              </div>
+            </div>
+
+            <div class="product-grid__product-wrapper" data-id="p-11" data-category="gps-tracker climbing 3060">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_gps_3.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog GPS Tracker Camping </div>
+                  <div class="product-grid__price center"> $43.33 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+
+            <div class="product-grid__product-wrapper" data-id="p-12" data-category="gps-tracker hiking 3060">
+              <div class="product-grid__product">
+                <div class="product-grid__img-wrapper">			
+                  <img src="static/images/dog_gps_2.jpg" alt="Img" class="product-grid__img" onclick="location.href='product-detail.html';" />
+                </div>
+                  <div class="product-grid__title center"> Dog GPS Tracker Camping </div>
+                  <div class="product-grid__price center"> $53.33 </div>
+                  <p class="star center"> <span>★★★★</span>★<p></p>
+                  <div class="product-grid__btn product-grid__add-to-cart"> Add to Cart</div>
+              </div>
+            </div>
+            <!-- Product list end here -->
+          </div>		
+        </div>
+      </div>
+    </div>
+    <!-- items end -->
+    
+    
+      <footer>
+        <div id="subscript">
+          <div class="subscription">
+            <input id="input-box" type="email" name="emailaddress", value="email address" onclick="hidevalue()">
+            <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
+          </div>
+          <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
+        </div>
+      </footer>
+
+    </div>
+  </body>
+
+
+</html>

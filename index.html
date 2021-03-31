@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Muddy Paws Adventure Gear </title>
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <!-- the title row of the page -->
+      <div class="nav-item logo-container">
+        <a id="logo"><img src="static/images/paws.png"></a>
+        <div id=name>
+          <img src="static/images/website-title.png">
+        </div>
+      </div>
+    
+      <div class="nav-item">
+        <ul class="nav-links body-text">
+          <li class="home"><a href="home.html"> Home </a></li>
+          <li class="shop-cat"><a href="product-catalog.html"> Shop Cats </a></li>
+          <li class="shop-dog"><a href="product-catalog.html"> Shop Dogs </a></li>
+          <li class="contact"><a href="back-to-home.html"> Contact </a></li>
+        </ul>
+      </div>
+
+      <div class="nav-item login">
+        <div class="signin center text-color body-text"> sign in </div>
+        <div id="search"><img src="static/images/search.png"></div>
+        <div id="cart"><img src="static/images/cart.png" onclick="location.href='shopping_cart.html';"> </div>
+      </div>
+    </header>
+    
+    <!-- the body part of the page -->
+    <div class="body-content">
+      <!-- banner images -->
+      <div class="banner">
+        <img class="banner-img fade" src="static/images/hiking_dogs.jpg">
+        <img class="banner-img fade" src="static/images/banner-3.jpg">
+        <img class="banner-img fade" src="static/images/banner-2.jpg">
+        <img class="banner-img fade" src="static/images/banner-4.jpg">
+        <button onclick="location.href='product-catalog.html';"> Shop Now </button>
+      </div>
+        <br>
+        
+      <!-- dots for slideshow -->
+      <div class="center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+      </div>
+
+      <!-- four products part on the home page -->
+      <div class="four-div">
+        <div class="each-div" id="new-in"> 
+          <a id="new-in", href="product-catalog.html"><img src="static/images/cat_harness2.jpg"></a>
+          <br><h1> NEW IN </h1>
+        </div>
+        
+        <div class="each-div" id="best-seller"> 
+          <a href="product-catalog.html"><img src="static/images/dog_gps.jpg"></a>
+          <br><h1> BEST SELLER </h1>
+        </div>
+        
+        <div class="each-div" id="cat-fav"> 
+          <a id="cat-fav", href="product-catalog.html"><img src="static/images/cat_harness.jpg"></a>
+          <br><h1> CAT FAVORITE </h1>
+        </div>
+
+        <div class="each-div" id="dog-fav"> 
+          <a id="dog-fav", href="product-catalog.html"><img src="static/images/dog_harness.jpg"></a>
+          <br><h1> DOG FAVORITE </h1>
+        </div>
+      </div>
+    
+    
+    <!-- footer for subscription -->
+    <footer>
+      <div id="subscript">
+        <div class="subscription">
+          <input id="input-box" type="email" name="emailaddress", value="email address" onclick="hidevalue()">
+          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
+        </div>
+        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
+      </div>
+    </footer>
+
+    <script> showSlides(1); </script>
+    </body>
+
+</html>
