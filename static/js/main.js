@@ -21,18 +21,12 @@ var filtering = function () {
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
 
-      // filter each .flower element
       $filteredResults = $filteredResults.filter(function() {
 
         var matched = false,
           currentFilterValues = $(this).data('category').split(' ');
 
-        // loop over each category value in the current .flower's data-category
         $.each(currentFilterValues, function(_, currentFilterValue) {
-
-          // if the current category exists in the selected filters array
-          // set matched to true, and stop looping. as we're ORing in each
-          // set of filters, we only need to match once
 
           if ($.inArray(currentFilterValue, filterValues) != -1) {
             matched = true;
@@ -40,7 +34,7 @@ var filtering = function () {
           }
         });
 
-        // if matched is true the current .flower element is returned
+        // if matched is true the current matched items are returned.
         return matched;
 
       });
@@ -104,15 +98,69 @@ function hidevalue() {
 
 
 
+// select items
+var size_item = 0;
+var color_item = 0;
+function get_size(id) {
+  let lis = document.getElementById("change-size").getElementsByTagName('li');
+  let image = document.getElementById('product_image');
+  size_item = parseInt(id);
+  
+  // change the color of the unselected item to the default 
+  for (let i=0; i<lis.length; i++) {
+    if (i != size_item) {
+      lis[i].style.backgroundColor = "#E0EFD6";
+    }
+  }
+
+  // change the color of the selected item
+  lis[size_item].style.backgroundColor = "#f7bf26";
+
+
+  // change the main image corresponding to the size
+  if (size_item == 0) {
+    image.src = image.src.replace(/tiny|small|medium|large/, 'tiny');
+  } else if (size_item == 1) {
+    image.src = image.src.replace(/tiny|small|medium|large/, 'small');
+  } else if (size_item == 2) {
+    image.src = image.src.replace(/tiny|small|medium|large/, 'medium');
+  } else {
+    image.src = image.src.replace(/tiny|small|medium|large/, 'large');
+  }
+
+}
+
+
+function get_color(id) {
+  let lis = document.getElementById("change-color").getElementsByTagName('li');
+  let image = document.getElementById('product_image');
+  color_item = parseInt(id);
+  
+  // change the color of the unselected item to the default 
+  for (let i=0; i<lis.length; i++) {
+    if (i != color_item) {
+      lis[i].style.backgroundColor = "#E0EFD6";
+    }
+  }
+  // change the color of the selected item
+  lis[color_item].style.backgroundColor = "#f7bf26";
+
+  // change the main image corresponding to the color
+  if (color_item == 0) {
+    image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'strawberry');
+    console.log(image.src);
+  } else if (color_item == 1) {
+    image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'blackberry');
+  } else if (color_item == 2) {
+    image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'crazyberry');
+  } else {
+    image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'fireorange');
+  }
+}
+
 
 
 // shopping cart
-/* Set rates + misc */
-var taxRate = 0.05;
-var shippingRate = 15.00; 
-var fadeTime = 300;
-
-
 /* Recalculate cart */
 function recalculateCart()
 {
@@ -124,22 +172,22 @@ function recalculateCart()
   });
   
   /* Calculate totals */
-  var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
+  var tax = subtotal *  0.05;
+  var shipping = (subtotal > 0 ? 15.00 : 0);
   var total = subtotal + tax + shipping;
   
   /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
+  $('.totals-value').fadeOut(300, function() {
     $('#cart-subtotal').html(subtotal.toFixed(2));
     $('#cart-tax').html(tax.toFixed(2));
     $('#cart-shipping').html(shipping.toFixed(2));
     $('#cart-total').html(total.toFixed(2));
     if(total == 0){
-      $('.checkout').fadeOut(fadeTime);
+      $('.checkout').fadeOut(300);
     }else{
-      $('.checkout').fadeIn(fadeTime);
+      $('.checkout').fadeIn(300);
     }
-    $('.totals-value').fadeIn(fadeTime);
+    $('.totals-value').fadeIn(300);
   });
 }
 
@@ -155,10 +203,10 @@ function updateQuantity(quantityInput)
   
   /* Update line price display and recalc cart totals */
   productRow.children('.product-line-price').each(function () {
-    $(this).fadeOut(fadeTime, function() {
+    $(this).fadeOut(300, function() {
       $(this).text(linePrice.toFixed(2));
       recalculateCart();
-      $(this).fadeIn(fadeTime);
+      $(this).fadeIn(300);
     });
   });  
 }
@@ -169,94 +217,14 @@ function removeItem(removeButton)
 {
   /* Remove row from DOM and recalc cart total */
   var productRow = $(removeButton).parent().parent();
-  productRow.slideUp(fadeTime, function() {
+  productRow.slideUp(300, function() {
     productRow.remove();
     recalculateCart();
   });
 }
 
 
-
-
-
-// side shopping cart 
-jQuery(document).ready(function($){
-	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
-	var $L = 1200,
-		$menu_navigation = $('#main-nav'),
-		$cart_trigger = $('#cd-cart-trigger'),
-		$hamburger_icon = $('#cd-hamburger-menu'),
-		$lateral_cart = $('#cd-cart'),
-		$shadow_layer = $('#cd-shadow-layer');
-
-	//open lateral menu on mobile
-	$hamburger_icon.on('click', function(event){
-		event.preventDefault();
-		//close cart panel (if it's open)
-		$lateral_cart.removeClass('speed-in');
-		toggle_panel_visibility($menu_navigation, $shadow_layer, $('body'));
-	});
-
-	//open cart
-	$cart_trigger.on('click', function(event){
-		event.preventDefault();
-		//close lateral menu (if it's open)
-		$menu_navigation.removeClass('speed-in');
-		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
-	});
-
-	//close lateral cart or lateral menu
-	$shadow_layer.on('click', function(){
-		$lateral_cart.removeClass('speed-in');
-		$menu_navigation.removeClass('speed-in');
-		$shadow_layer.removeClass('is-visible');
-		$('body').removeClass('overflow-hidden');
-	});
-
-	//move #main-navigation inside header on laptop
-	//insert #main-navigation after header on mobile
-	move_navigation( $menu_navigation, $L);
-	$(window).on('resize', function(){
-		move_navigation( $menu_navigation, $L);
-		
-		if( $(window).width() >= $L && $menu_navigation.hasClass('speed-in')) {
-			$menu_navigation.removeClass('speed-in');
-			$shadow_layer.removeClass('is-visible');
-			$('body').removeClass('overflow-hidden');
-		}
-
-	});
-});
-
-function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
-	if( $lateral_panel.hasClass('speed-in') ) {
-		$lateral_panel.removeClass('speed-in');
-		$background_layer.removeClass('is-visible');
-		$body.removeClass('overflow-hidden');
-	} else {
-		$lateral_panel.addClass('speed-in');
-		$background_layer.addClass('is-visible');
-		$body.addClass('overflow-hidden');
-	}
-}
-
-function move_navigation( $navigation, $MQ) {
-	if ( $(window).width() >= $MQ ) {
-		$navigation.detach();
-		$navigation.appendTo('header');
-	} else {
-		$navigation.detach();
-		$navigation.insertAfter('header');
-	}
-}
-
-
-
-
 // Add to cart feature
-/*
-Experimenting with the jquery offset and position
-*/
 $(document).ready(function() {
   var cartCountValue = 0;
   var cartCount = $('.cart .count');
@@ -267,13 +235,9 @@ $(document).ready(function() {
     var cartCountPosition = $(cartCount).offset();
     var btnPosition = $(this).offset();
     var leftPos =
-      cartCountPosition.left < btnPosition.left
-        ? btnPosition.left - (btnPosition.left - cartCountPosition.left)
+      cartCountPosition.left < btnPosition.left ? btnPosition.left - (btnPosition.left - cartCountPosition.left)
         : cartCountPosition.left;
-    var topPos =
-      cartCountPosition.top < btnPosition.top
-        ? cartCountPosition.top
-        : cartCountPosition.top;
+    var topPos = cartCountPosition.top < btnPosition.top  ? cartCountPosition.top : cartCountPosition.top;
     $(cartBtn)
       .append("<span class='count'>1</span>");
     
@@ -281,12 +245,8 @@ $(document).ready(function() {
       $(count).offset({
         left: leftPos,
         top: topPos
-      })
-      .animate(
-        {
-          opacity: 0
-        },
-        800,
+      }) .animate(
+        { opacity: 0  },  800,
         function() {
           $(this).remove();
           cartCountValue++;
@@ -302,33 +262,5 @@ $(document).ready(function() {
 });
 
 
-
-
-
-// select items
-var size_item = 0;
-var color_item = 0;
-function get_size(id) {
-  let lis = document.getElementById("change-size").getElementsByTagName('li');
-  size_item = parseInt(id);
-  for (let i=0; i<lis.length; i++) {
-    if (i != size_item) {
-      lis[i].style.backgroundColor = "#E0EFD6";
-    }
-  }
-  lis[size_item].style.backgroundColor = "#f7bf26";
-}
-
-
-function get_color(id) {
-  let lis = document.getElementById("change-color").getElementsByTagName('li');
-  color_item = parseInt(id);
-  for (let i=0; i<lis.length; i++) {
-    if (i != color_item) {
-      lis[i].style.backgroundColor = "#E0EFD6";
-    }
-  }
-  lis[color_item].style.backgroundColor = "#f7bf26";
-}
 
 

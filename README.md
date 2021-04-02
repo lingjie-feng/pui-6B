@@ -1,15 +1,16 @@
-# pui
-Assignments and projects for the 05430 PUI course
+# pui 6B
+Assignments 6B for the 05430 PUI course.
+
+## Note: 
+
+**References:** 
+
+**Debugging helpful links:** 
+
+**Aditional features:** 
 
 
 
-References: 
-Shoppig cart icon: https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-shopping-cart
-
-
-
-Debugging helpful links: 
-
-
-
-Aditional features: 
+**Creative Commons credit:** 
+all the imgages used in this project are from Flikr. 
+All the icons used in this project are from thenounproject.com. 

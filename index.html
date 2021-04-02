@@ -3,11 +3,13 @@
 
   <head>
     <title> Muddy Paws Adventure Gear </title>
-    
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
     <!-- Style -->
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- JS -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="static/js/main.js"></script>
 
     <!-- Font -->
@@ -19,17 +21,16 @@
 
   <body>
     <header>
-      <!-- the title row of the page -->
       <div class="nav-item logo-container">
-        <a id="logo"><img src="static/images/paws.png"></a>
+        <a id="logo"><img src="static/images/paws.png" alt="logo image"></a>
         <div id=name>
-          <img src="static/images/website-title.png">
+          <img src="static/images/website-title.png" alt="Muddy Paws Adventure Gear">
         </div>
       </div>
     
       <div class="nav-item">
         <ul class="nav-links body-text">
-          <li class="home"><a href="home.html"> Home </a></li>
+          <li class="home"><a href="index.html"> Home </a></li>
           <li class="shop-cat"><a href="product-catalog.html"> Shop Cats </a></li>
           <li class="shop-dog"><a href="product-catalog.html"> Shop Dogs </a></li>
           <li class="contact"><a href="back-to-home.html"> Contact </a></li>
@@ -38,19 +39,22 @@
 
       <div class="nav-item login">
         <div class="signin center text-color body-text"> sign in </div>
-        <div id="search"><img src="static/images/search.png"></div>
-        <div id="cart"><img src="static/images/cart.png" onclick="location.href='shopping_cart.html';"> </div>
-      </div>
+        <div id="search"><img src="static/images/search.png" alt="search"></div>
+         <div class="cart">
+            <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
+            <span class="count"> 0 </span>
+          </div>
+        </div>
     </header>
     
     <!-- the body part of the page -->
     <div class="body-content">
       <!-- banner images -->
       <div class="banner">
-        <img class="banner-img fade" src="static/images/hiking_dogs.jpg">
-        <img class="banner-img fade" src="static/images/banner-3.jpg">
-        <img class="banner-img fade" src="static/images/banner-2.jpg">
-        <img class="banner-img fade" src="static/images/banner-4.jpg">
+        <img class="banner-img fade" src="static/images/hiking_dogs.jpg" alt="banner image of that people and dogs are walking">
+        <img class="banner-img fade" src="static/images/banner-3.jpg" alt="banner image of mountain view">
+        <img class="banner-img fade" src="static/images/banner-2.jpg" alt="banner image of forest view">
+        <img class="banner-img fade" src="static/images/banner-4.jpg" alt="banner image of grass view">
         <button onclick="location.href='product-catalog.html';"> Shop Now </button>
       </div>
         <br>
@@ -66,32 +70,32 @@
       <!-- four products part on the home page -->
       <div class="four-div">
         <div class="each-div" id="new-in"> 
-          <a id="new-in", href="product-catalog.html"><img src="static/images/cat_harness2.jpg"></a>
+          <a href="product-catalog.html"><img src="static/images/cat_harness2.jpg" alt="new in products category"></a>
           <br><h1> NEW IN </h1>
         </div>
         
         <div class="each-div" id="best-seller"> 
-          <a href="product-catalog.html"><img src="static/images/dog_gps.jpg"></a>
+          <a href="product-catalog.html"><img src="static/images/large_dog.jpg" alt="best seller category"></a>
           <br><h1> BEST SELLER </h1>
         </div>
         
         <div class="each-div" id="cat-fav"> 
-          <a id="cat-fav", href="product-catalog.html"><img src="static/images/cat_harness.jpg"></a>
+          <a href="product-catalog.html"><img src="static/images/cat_harness.jpg" alt="cat's favorite products"></a>
           <br><h1> CAT FAVORITE </h1>
         </div>
 
         <div class="each-div" id="dog-fav"> 
-          <a id="dog-fav", href="product-catalog.html"><img src="static/images/dog_harness.jpg"></a>
+          <a href="product-catalog.html"><img src="static/images/dog_harness.jpg" alt="dog's favorite products"></a>
           <br><h1> DOG FAVORITE </h1>
         </div>
       </div>
-    
+    </div>
     
     <!-- footer for subscription -->
     <footer>
       <div id="subscript">
         <div class="subscription">
-          <input id="input-box" type="email" name="emailaddress", value="email address" onclick="hidevalue()">
+          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
           <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
         </div>
         <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>

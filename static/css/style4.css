@@ -121,6 +121,8 @@
     }
     
     .item-image-parent {
+        margin-left: 8%;
+        margin-right: -8%;
         order: 1;
         width: 50%;
         display: flex;
@@ -131,22 +133,15 @@
         width: 50%;
     }
     
-    .item-list-vertical {
-        order: 1;
-        width: 10%;
-        overflow-y: auto;
-        margin-top: 50px;
-    }
     
-    #img-zoom-container {
-        order: 2;
-        width: 80%;
-        height: 100%;
+    #main-image {
+        width: 70%;
     }
+
 
     /* sectioning completed */
     
-    
+  
     .thumb-box {
         width: 50px;
         height: 50px;
@@ -159,23 +154,10 @@
         height: 100%;
     }
     
-
-    #img-zoom-container {
-        width: 600px;
-        height: 600px;
-    }
-
-    #img-zoom-container img {
-        width: 100%;
-        height: auto;
-    }
-
-
     
     .thumb-box:hover {
         cursor: pointer;
-        border-color: #e77600;;
-        box-shadow: 0px 1px 5px 1px #e77600;
+        box-shadow: 0px 1px 5px 1px #7e7e7e;
     }
     
     /* Item Info */
@@ -293,15 +275,6 @@
   font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
  body {
 	 font-family: 'Roboto', sans-serif;
 }

@@ -146,6 +146,7 @@ header a:hover {
   height: 350px;
   margin-top: 10%;
   margin-left: 30%;
+  margin-bottom: 10%;
 }
 
 .each-div img{
@@ -279,18 +280,6 @@ footer p{
   background-color: #127B01;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
 
 @keyframes fade {
   from {opacity: .4} 
@@ -305,4 +294,95 @@ footer p{
 
 .border {
   border: 0.2em solid black;
+}
+
+ body {
+	 font-family: 'Roboto', sans-serif;
+}
+ .cart-btn {
+	 padding: 16px 32px;
+   font-family: 'Raleway';
+   font-weight: bold;
+	 border: 0;
+	 border-radius: 10px;
+	 background-color: #2E5C2D;
+	 color: #efefef;
+	 text-transform: uppercase;
+	 cursor: pointer;
+	 outline: 0;
+	 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	 transition: all ease 0.5s;
+	 position: relative;
+	 margin: 14px;
+}
+ .cart-btn:hover {
+	 background-color:rgb(243, 186, 112);
+	 box-shadow: 0px 2px 4px rgb(121, 92, 55);
+}
+ .cart-btn .count {
+	 position: absolute;
+	 height: 20px;
+	 width: 20px;
+	 display: inline-flex;
+	 top: 0;
+	 left: 100%;
+	 transform: translate(-50%, -50%);
+	 background-color: #85cb33;
+	 justify-content: center;
+	 align-items: center;
+	 color: #212121;
+	 font-size: 14px;
+	 border-radius: 400px;
+	 transition: all ease 1s;
+	 z-index: 1;
+}
+ .cart .count {
+	 height: 30px;
+	 width: 30px;
+	 background-color: #85cb33;
+	 border-radius: 500px;
+	 font-size: 14px;
+	 display: inline-flex;
+	 justify-content: center;
+	 align-items: center;
+	 top: 0px;
+	 right: 0px;
+	 color: #100b00;
+	 transform: translate(50%, -50%);
+	 z-index: 1;
+}
+ .btn {
+	 padding: 16px 32px;
+	 border: 0;
+	 border-radius: 4px;
+	 background-color: #4caf50;
+	 color: #fff;
+	 text-transform: uppercase;
+	 cursor: pointer;
+	 outline: 0;
+	 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	 transition: all ease 0.5s;
+	 position: absolute;
+	 bottom: 10px;
+	 left: 50%;
+	 transform: translateX(-50%);
+	 margin: auto;
+}
+ .btn:hover {
+	 background-color: #46a149;
+	 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.count {
+  margin-left: -1rem;
+}
+
+.count:hover{
+  cursor:pointer;
+  background-color: rgb(243, 186, 112);
+}
+
+#cart-icon:hover {
+  cursor:pointer;
+  color: rgb(243, 186, 112);
 }

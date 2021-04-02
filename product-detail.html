@@ -2,8 +2,8 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF8">
     <title> Muddy Paws Adventure Gear </title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     
     <!-- Style -->
     <link rel="stylesheet" href="static/css/style4.css">
@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JS -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="https://unpkg.com/js-image-zoom@0.7.0/js-image-zoom.js" type="application/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="static/js/main.js"></script>
 
     <!-- Font -->
@@ -25,9 +24,9 @@
   <body>
     <header>
       <div class="nav-item logo-container">
-        <a id="logo"><img src="static/images/paws.png"></a>
+        <a id="logo"><img src="static/images/paws.png" alt="logo image"></a>
         <div id=name>
-          <img src="static/images/website-title.png">
+          <img src="static/images/website-title.png" alt="Muddy Paws Adventure Gear">
         </div>
       </div>
     
@@ -42,7 +41,7 @@
 
       <div class="nav-item login">
         <div class="signin center text-color body-text"> sign in </div>
-        <div id="search"><img src="static/images/search.png"></div>
+        <div id="search"><img src="static/images/search.png" alt="search"></div>
          <div class="cart">
             <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
             <span class="count"> 0 </span>
@@ -52,33 +51,9 @@
 
     <div class="product-info">
         <div class="item-image-parent">
-            <div class="item-list-vertical">
-                <div class="thumb-box">
-                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
-                </div>
-                <div class="thumb-box">
-                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
-                </div>
-                <div class="thumb-box">
-                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
-                </div>
-                <div class="thumb-box">
-                    <img src="static/images/dog_harness.jpg" alt="thumbnail" />
-                </div>
+            <div id="main-image">
+                <img id="product_image" src="static/images/large_dog_strawberry.jpg" alt="dog gps tracker"/>
             </div>
-
-            <div id="img-zoom-container">
-                <img src="static/images/dog_harness.jpg" width="50px"/>
-            </div>
-            <script>
-              var options = {
-                width: 600,
-                zoomWidth: 500,
-                offset: {vertical: 0, horizontal: 10}
-              };
-              new ImageZoom(document.getElementById("img-zoom-container"), options);
-            
-            </script>
 
         </div>
 
@@ -113,10 +88,10 @@
                 <div class="change-color">
                   <label>Color:</label>
                     <ul class="menu" id="change-color">
-                        <li id="0" onclick="get_color(this.id)"> Strawberry </li>
-                        <li id="1" onclick="get_color(this.id)"> Blackberry </li>
-                        <li id="2" onclick="get_color(this.id)"> Crazyberry </li>
-                        <li id="3" onclick="get_color(this.id)"> Fire Orange </li>
+                        <li id="00" onclick="get_color(this.id)"> Strawberry </li>
+                        <li id="01" onclick="get_color(this.id)"> Blackberry </li>
+                        <li id="02" onclick="get_color(this.id)"> Crazyberry </li>
+                        <li id="03" onclick="get_color(this.id)"> Fire Orange </li>
                     </ul>
                 </div>
 
@@ -137,6 +112,7 @@
         </div>
     </div>
 
+    <!-- Recommand section Start-->
     <div class="recommend">
         <h1> Recommend </h1>
         <ul class="menu">
@@ -144,12 +120,13 @@
             <li> dog harness 3 </li>
           </ul>
     </div>
+    <!-- Recommand section End-->
 
-    
+    <!-- Review section Start-->
     <div class="reviews-wrapper">
         <h1> Reviews </h1>
         <div class="reviews">
-            <img id="user-photo" src="static/images/cat_harness2.jpg" width="100px">
+            <img id="user-photo" src="static/images/cat_harness2.jpg" alt="cat harness"/>
             <div class="review">
                 <h3>Very good! </h3>
                 <div class="star-rating">
@@ -160,11 +137,12 @@
             </div>
         </div>
     </div>
+     <!-- Review section End -->
 
     <footer>
       <div id="subscript">
         <div class="subscription">
-          <input id="input-box" type="email" name="emailaddress", value="email address" onclick="hidevalue()">
+          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
           <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
         </div>
         <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>

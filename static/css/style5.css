@@ -92,14 +92,15 @@
  .product .remove-product {
 	 border: 0;
 	 padding: 4px 8px;
-	 background-color: #c66;
+	 background-color: rgb(120, 151, 99);
 	 color: #fff;
 	 font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 	 font-size: 12px;
 	 border-radius: 3px;
 }
  .product .remove-product:hover {
-	 background-color: #a44;
+	 background-color: rgb(240, 208, 106);
+	 cursor: pointer;
 }
 /* Totals section */
  .totals .totals-item {
@@ -127,81 +128,125 @@
 	 border: 0;
 	 margin-top: 20px;
 	 padding: 6px 25px;
-	 background-color: #6b6;
+	 background-color: rgb(48, 105, 48);
 	 color: #fff;
 	 font-size: 25px;
 	 border-radius: 3px;
+	 cursor: pointer
 }
  .checkout:hover {
-	 background-color: #494;
+	 background-color: rgb(250, 201, 96);
 }
-/* Make adjustments for tablet */
- @media screen and (max-width: 650px) {
-	 .shopping-cart {
-		 margin: 0;
-		 padding-top: 20px;
-		 border-top: 1px solid #eee;
-	}
-	 .column-labels {
-		 display: none;
-	}
-	 .product-image {
-		 float: right;
-		 width: auto;
-	}
-	 .product-image img {
-		 margin: 0 0 10px 10px;
-	}
-	 .product-details {
-		 float: none;
-		 margin-bottom: 10px;
-		 width: auto;
-	}
-	 .product-price {
-		 clear: both;
-		 width: 70px;
-	}
-	 .product-quantity {
-		 width: 100px;
-	}
-	 .product-quantity input {
-		 margin-left: 20px;
-	}
-	 .product-quantity:before {
-		 content: 'x';
-	}
-	 .product-removal {
-		 width: auto;
-	}
-	 .product-line-price {
-		 float: right;
-		 width: 70px;
-	}
-}
-/* Make more adjustments for phone */
- @media screen and (max-width: 350px) {
-	 .product-removal {
-		 float: right;
-	}
-	 .product-line-price {
-		 float: right;
-		 clear: left;
-		 width: auto;
-		 margin-top: 10px;
-	}
-	 .product .product-line-price:before {
-		 content: 'Item Total: $';
-	}
-	 .totals .totals-item label {
-		 width: 60%;
-	}
-	 .totals .totals-item .totals-value {
-		 width: 40%;
-	}
-}
- 
 
 
 .product-details {
 	color:rgb(8, 58, 8);
+}
+
+
+
+
+
+.body-content h1{
+	color:rgb(8, 58, 8);
+	font-family: "Raleway";
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+ body {
+	 font-family: 'Roboto', sans-serif;
+}
+ .cart-btn {
+	 padding: 16px 32px;
+   font-family: 'Raleway';
+   font-weight: bold;
+	 border: 0;
+	 border-radius: 10px;
+	 background-color: #2E5C2D;
+	 color: #efefef;
+	 text-transform: uppercase;
+	 cursor: pointer;
+	 outline: 0;
+	 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	 transition: all ease 0.5s;
+	 position: relative;
+	 margin: 14px;
+}
+ .cart-btn:hover {
+	 background-color:rgb(243, 186, 112);
+	 box-shadow: 0px 2px 4px rgb(121, 92, 55);
+}
+ .cart-btn .count {
+	 position: absolute;
+	 height: 20px;
+	 width: 20px;
+	 display: inline-flex;
+	 top: 0;
+	 left: 100%;
+	 transform: translate(-50%, -50%);
+	 background-color: #85cb33;
+	 justify-content: center;
+	 align-items: center;
+	 color: #212121;
+	 font-size: 14px;
+	 border-radius: 400px;
+	 transition: all ease 1s;
+	 z-index: 1;
+}
+ .cart .count {
+	 height: 30px;
+	 width: 30px;
+	 background-color: #85cb33;
+	 border-radius: 500px;
+	 font-size: 14px;
+	 display: inline-flex;
+	 justify-content: center;
+	 align-items: center;
+	 top: 0px;
+	 right: 0px;
+	 color: #100b00;
+	 transform: translate(50%, -50%);
+	 z-index: 1;
+}
+ .btn {
+	 padding: 16px 32px;
+	 border: 0;
+	 border-radius: 4px;
+	 background-color: #4caf50;
+	 color: #fff;
+	 text-transform: uppercase;
+	 cursor: pointer;
+	 outline: 0;
+	 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	 transition: all ease 0.5s;
+	 position: absolute;
+	 bottom: 10px;
+	 left: 50%;
+	 transform: translateX(-50%);
+	 margin: auto;
+}
+ .btn:hover {
+	 background-color: #46a149;
+	 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.count {
+  margin-left: -1rem;
+}
+
+.count:hover{
+  cursor:pointer;
+  background-color: rgb(243, 186, 112);
+}
+
+#cart-icon:hover {
+  cursor:pointer;
+  color: rgb(243, 186, 112);
 }
