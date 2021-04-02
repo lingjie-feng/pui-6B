@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Muddy Paws Adventure Gear </title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="static/css/style.css" type="text/css">
+    <link rel="stylesheet" href="static/css/style5.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="nav-item logo-container">
+        <a id="logo"><img src="static/images/paws.png" alt="logo image"></a>
+        <div id=name>
+          <img src="static/images/website-title.png" alt="Muddy Paws Adventure Gear">
+        </div>
+      </div>
+    
+      <div class="nav-item">
+        <ul class="nav-links body-text">
+          <li class="home"><a href="index.html"> Home </a></li>
+          <li class="shop-cat"><a href="product-catalog.html"> Shop Cats </a></li>
+          <li class="shop-dog"><a href="product-catalog.html"> Shop Dogs </a></li>
+          <li class="contact"><a href="back-to-home.html"> Contact </a></li>
+        </ul>
+      </div>
+
+      <div class="nav-item login">
+        <div class="signin center text-color body-text"> sign in </div>
+        <div id="search"><img src="static/images/search.png" alt="search"></div>
+         <div class="cart">
+            <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
+            <span class="count"> 0 </span>
+          </div>
+        </div>
+    </header>
+    
+    <!-- the body part of the page -->
+    <div class="body-content">
+        <h1>Your Wishlist <span> &#9829; </span></h1> 
+
+        <div class="shopping-cart">
+        
+          <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Item</label>
+            <label class="product-price">Price</label>
+            <label class="product-stock">Stock Status</label>
+            <label class="product-removal">Remove</label>
+            <label class="product-add-to-cart">Add to Cart</label>
+          </div>
+        
+          <!-- single product start -->
+          <div class="product">
+            <div class="product-image">
+              <img src="static/images/dog_harness.jpg" alt="dog harness">
+            </div>
+            <div class="product-details">
+              <div class="product-title"> Dog harness 1 </div>
+            </div>
+            <div class="product-price"> 13.33 </div>
+            <div class="product-stock"> In Stock </div>
+            <div class="product-removal">
+              <button class="remove-product" onclick="removeItem(this);">
+                Remove
+              </button>
+            </div>
+            <div class="product-add-to-cart"> <i class="fa fa-shopping-cart" style="font-size:24px"></i> </div>
+          </div>
+          <!-- single product start -->
+        
+          <div class="product">
+            <div class="product-image">
+              <img src="static/images/dog-helmet.jpg" alt="dog helmet">
+            </div>
+            <div class="product-details">
+              <div class="product-title"> Dog helmet 1 </div>
+            </div>
+            <div class="product-price"> 11.23 </div>
+            <div class="product-stock"> In Stock </div>
+            <div class="product-removal">
+              <button class="remove-product" onclick="removeItem(this);">
+                Remove
+              </button>
+            </div>
+            <div class="product-add-to-cart"> <i class="fa fa-shopping-cart" style="font-size:24px"></i> </div>
+          </div>
+
+        </div>
+    </div>
+    
+    
+    <!-- footer for subscription -->
+    <footer>
+      <div id="subscript">
+        <div class="subscription">
+          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
+          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
+        </div>
+        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
+      </div>
+    </footer>
+
+    </body>
+
+</html>

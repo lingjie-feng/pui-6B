@@ -250,3 +250,18 @@
   cursor:pointer;
   color: rgb(243, 186, 112);
 }
+
+
+
+
+.product-add-to-cart {
+	float: left;
+	width: 12%;
+	text-align: right;
+}
+
+
+.product-stock {
+	float: left;
+	width: 10%;
+}
