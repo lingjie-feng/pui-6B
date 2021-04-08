@@ -60,13 +60,13 @@
         <!-- information about product: name, price, description, options, add to cart-->
         <div class="item-info-parent">
             <!-- main info -->
-            <h1> Dog GPS Tracker </h1>
+            <h1 class="product-name" id="product-name">Dog GPS Tracker</h1>
             <div class="price-rating">
-                <p><span id="price"> $15.55 </span></p>
+                <p><span id="price">$15.55</span></p>
                 <div class="star-rating">
                     <span>★★★★</span>★            
                 </div>
-                <p> 2 ratings </p>
+                <p>2 ratings</p>
             </div>
             
             <div class="description">
@@ -77,10 +77,10 @@
                 <div class="change-size">
                   <label>Size:</label>
                     <ul class="menu" id="change-size">
-                        <li id="0" onclick="get_size(this.id)"> Tiny </li>
-                        <li id="1" onclick="get_size(this.id)"> Small </li>
-                        <li id="2" onclick="get_size(this.id)"> Medium </li>
-                        <li id="3" onclick="get_size(this.id)"> Large </li>
+                        <li id="0" onclick="get_size(this.id)">Tiny</li>
+                        <li id="1" onclick="get_size(this.id)">Small</li>
+                        <li id="2" onclick="get_size(this.id)">Medium</li>
+                        <li id="3" onclick="get_size(this.id)">Large</li>
                     </ul>
                 </div>
                 <br>
@@ -88,10 +88,10 @@
                 <div class="change-color">
                   <label>Color:</label>
                     <ul class="menu" id="change-color">
-                        <li id="00" onclick="get_color(this.id)"> Strawberry </li>
-                        <li id="01" onclick="get_color(this.id)"> Blackberry </li>
-                        <li id="02" onclick="get_color(this.id)"> Crazyberry </li>
-                        <li id="03" onclick="get_color(this.id)"> Fire Orange </li>
+                        <li id="00" onclick="get_color(this.id)">Strawberry</li>
+                        <li id="01" onclick="get_color(this.id)">Blackberry</li>
+                        <li id="02" onclick="get_color(this.id)">Crazyberry</li>
+                        <li id="03" onclick="get_color(this.id)">Fire Orange</li>
                     </ul>
                 </div>
 
@@ -105,7 +105,7 @@
                 
                 <br>
                 <div class="purchase">
-                    <button class="cart-btn">Add To Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="check-cart" onclick="location.href='shopping_cart.html';">Check My Cart</span>
+                    <button class="cart-btn" onclick="saveItems()">Add To Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="check-cart" onclick="location.href='shopping_cart.html';">Check My Cart</span>
                 </div>
 
             </div>
@@ -139,15 +139,6 @@
     </div>
      <!-- Review section End -->
 
-    <footer>
-      <div id="subscript">
-        <div class="subscription">
-          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
-          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
-        </div>
-        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
-      </div>
-    </footer>
   </body>
 
 </html>

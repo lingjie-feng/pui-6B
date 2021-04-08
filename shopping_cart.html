@@ -50,10 +50,10 @@
     </header>
     
     <!-- the body part of the page -->
-    <div class="body-content">
+    <div class="body-content" id="body-content">
         <h1>Your Cart</h1>
 
-        <div class="shopping-cart">
+        <div class="shopping-cart" id="shopping-cart">
         
           <div class="column-labels">
             <label class="product-image">Image</label>
@@ -64,13 +64,15 @@
             <label class="product-line-price">Total</label>
           </div>
         
-          <!-- single product start -->
+          <!-- single product start 
           <div class="product">
             <div class="product-image">
-              <img src="static/images/dog_harness.jpg" alt="dog harness">
+              <img id="product-image" src="static/images/dog_harness.jpg" alt="dog harness">
             </div>
             <div class="product-details">
-              <div class="product-title"> Dog harness 1 </div>
+              <div class="product-title">product</div>
+              <div class="product-size">color</div>
+              <div class="product-color">size</div>
             </div>
             <div class="product-price"> 13.33 </div>
             <div class="product-quantity">
@@ -83,44 +85,26 @@
             </div>
             <div class="product-line-price"> 13.33 </div>
           </div>
-          <!-- single product start -->
-        
-          <div class="product">
-            <div class="product-image">
-              <img src="static/images/dog-helmet.jpg" alt="dog helmet">
-            </div>
-            <div class="product-details">
-              <div class="product-title"> Dog helmet 1 </div>
-            </div>
-            <div class="product-price"> 11.23 </div>
-            <div class="product-quantity">
-              <input type="number" value="1" min="1" onchange="updateQuantity(this);">
-            </div>
-            <div class="product-removal">
-              <button class="remove-product" onclick="removeItem(this);">
-                Remove
-              </button>
-            </div>
-            <div class="product-line-price"> 11.23 </div>
-          </div>
+          single product start -->
+  
         
           <!-- summary of costs start -->
-          <div class="totals">
+          <div class="totals" id="totals">
             <div class="totals-item">
               <label>Subtotal</label>
-              <div class="totals-value" id="cart-subtotal">71.97</div>
+              <div class="totals-value" id="cart-subtotal"></div>
             </div>
             <div class="totals-item">
               <label>Tax (5%)</label>
-              <div class="totals-value" id="cart-tax">3.60</div>
+              <div class="totals-value" id="cart-tax"></div>
             </div>
             <div class="totals-item">
               <label>Shipping</label>
-              <div class="totals-value" id="cart-shipping">15.00</div>
+              <div class="totals-value" id="cart-shipping"></div>
             </div>
             <div class="totals-item totals-item-total">
               <label> Total</label>
-              <div class="totals-value" id="cart-total">90.57</div>
+              <div class="totals-value" id="cart-total"></div>
             </div>
           </div>
           <!-- summary of costs end -->
@@ -129,19 +113,9 @@
         
         </div>
     </div>
+    <!-- the body part of the page end -->
     
-    
-    <!-- footer for subscription -->
-    <footer>
-      <div id="subscript">
-        <div class="subscription">
-          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
-          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
-        </div>
-        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
-      </div>
-    </footer>
-
+    <script> updateShoppingCart(); </script>
     </body>
 
 </html>
