@@ -148,7 +148,6 @@ function get_color(id) {
   // change the main image corresponding to the color
   if (color_item == 0) {
     image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'strawberry');
-    console.log(image.src);
   } else if (color_item == 1) {
     image.src = image.src.replace(/strawberry|blackberry|crazyberry|fireorange/, 'blackberry');
   } else if (color_item == 2) {
@@ -163,7 +162,12 @@ function get_color(id) {
 
 // Add to cart feature
 $(document).ready(function() {
-  var cartCountValue = 0;
+  var items = JSON.parse(localStorage.getItem('itemsInCart'));
+  var counter = 0;
+  for (var i=0; i<items.length; i++) {
+    counter += parseInt(items[i]['quantity']);
+  }
+  var cartCountValue = counter;
   var cartCount = $('.cart .count');
   $(cartCount).text(cartCountValue);
 
@@ -175,8 +179,10 @@ $(document).ready(function() {
       cartCountPosition.left < btnPosition.left ? btnPosition.left - (btnPosition.left - cartCountPosition.left)
         : cartCountPosition.left;
     var topPos = cartCountPosition.top < btnPosition.top  ? cartCountPosition.top : cartCountPosition.top;
+    
+    var quantity = parseInt($('.product-quantity input').val());
     $(cartBtn)
-      .append("<span class='count'>1</span>");
+      .append(`<span class='count'>${quantity}</span>`);
     
     $(cartBtn).find(".count").each(function(i,count){
       $(count).offset({
@@ -186,7 +192,7 @@ $(document).ready(function() {
         { opacity: 0  },  800,
         function() {
           $(this).remove();
-          cartCountValue++;
+          cartCountValue += quantity;
           $(cartCount).text(cartCountValue);
         }
       );
@@ -203,17 +209,19 @@ $(document).ready(function() {
 
 
 // save items in cart
-var itemInCart = [];
+//var itemInCart = [];
 var colors = ["strawberry", "crazyberry", "blackberry", "fire orange"];
 var sizes = ["tiny", "small", "medium", "large"];
 
 function saveItems(){
+  var itemInCart = JSON.parse(localStorage.getItem('itemsInCart'));
   var item_name = document.getElementById('product-name').innerHTML;
   var price = document.getElementById('price').innerHTML;
   var size = size_item
   var color = color_item
   var image = document.getElementById('product_image').src;
   var alt = document.getElementById('product_image').alt;
+  var quantity = $('.product-quantity input').val();
 
   var item = {
       'item_name':item_name, 
@@ -221,7 +229,9 @@ function saveItems(){
       'size':size,
       'color':color,
       'image':image,
-      'alt':alt}
+      'alt':alt,
+      'quantity': quantity}
+  console.log(item['quantity']);
   itemInCart.push(item);
   localStorage.setItem("itemsInCart", JSON.stringify(itemInCart));
 }
@@ -270,10 +280,8 @@ function createProductElement(i, items) {
       quantity.className = "product-quantity";
       var input = document.createElement("input");
       input.type = "number";
-      input.value = "1";
       input.min = "1";
-      //input.onchange = "updateQuantity(this);";
-      input.setAttribute("value", 1);
+      input.setAttribute("value", items[i]['quantity']);
       input.setAttribute("onchange", "updateQuantity(this);");
       quantity.appendChild(input);
       product.appendChild(quantity);
@@ -303,9 +311,6 @@ function createProductElement(i, items) {
 // Update the shopping cart page with items the user selected 
 function updateShoppingCart() {
   var items = JSON.parse(localStorage.getItem("itemsInCart"));
-  console.log(items);
-  console.log("updateShoppingCart");
-  console.log(items.length);
   for (var i=0; i<items.length; i++) {
     createProductElement(i, items);
     updateQuantity($('.product-quantity input'));
@@ -323,7 +328,6 @@ function recalculateCart()
     subtotal += parseFloat($(this).children('.product-line-price').text());
   });
   
-  console.log
   /* Calculate totals */
   var tax = subtotal *  0.05;
   var shipping = (subtotal > 0 ? 15.00 : 0);
@@ -353,7 +357,6 @@ function updateQuantity(quantityInput)
   var price = parseFloat(productRow.children('.product-price').text());
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
-  console.log("fuck");
   /* Update line price display and recalc cart totals */
   productRow.children('.product-line-price').each(function () {
     $(this).fadeOut(300, function() {
@@ -370,15 +373,33 @@ function removeItem(removeButton)
 {
   var index = removeButton.getAttribute("value");
   var items = JSON.parse(localStorage.getItem("itemsInCart"));
-  //items = items.filter();
   items.splice(index,1);
-  localStorage.removeItem("itemsInCart");
   localStorage.setItem("itemsInCart", JSON.stringify(items));
   /* Remove row from DOM and recalc cart total */
   var productRow = $(removeButton).parent().parent();
-  console.log(productRow);
   productRow.slideUp(300, function() {
     productRow.remove();
     recalculateCart();
   });
+  updateIndex();
+  storeCartNumber();
+}
+
+
+function storeCartNumber() {
+  var items = JSON.parse(localStorage.getItem('itemsInCart'));
+  var counter = 0;
+  for (var i=0; i<items.length; i++) {
+    counter += parseInt(items[i]['quantity']);
+  }
+  console.log(counter);
+  var cart_n = document.getElementsByClassName('count');
+  cart_n[0].innerHTML = counter;
+}
+
+function updateIndex() {
+  var x = document.getElementsByClassName('remove-product');
+  for (var i=0; i<x.length; i++) {
+    x[i].setAttribute('value', i);
+  }
 }
