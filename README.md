@@ -7,9 +7,9 @@ Assignments 6B for the 05430 PUI course.
 HTML symbols: https://www.htmlsymbols.xyz/unicode
 
 **Debugging helpful links:** 
+localStorage: https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage
 add class via js: https://stackoverflow.com/questions/1115310/how-can-i-add-a-class-to-a-dom-element-in-javascript
 add element to html: https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_elementcreate
-localStorage: https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage
 string format: https://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format (add to cart btn number consistent with quantity)
 
 

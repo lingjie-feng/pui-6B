@@ -165,7 +165,7 @@ $(document).ready(function() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
   var counter = 0;
   for (var i=0; i<items.length; i++) {
-    counter += parseInt(items[i]['quantity']);
+    counter += parseInt(items[i].quantity);
   }
   var cartCountValue = counter;
   var cartCount = $('.cart .count');
@@ -210,32 +210,32 @@ $(document).ready(function() {
 
 // save items in cart
 //var itemInCart = [];
+// two global variables
 var colors = ["strawberry", "crazyberry", "blackberry", "fire orange"];
 var sizes = ["tiny", "small", "medium", "large"];
+
+// example of prototypes
+function Item(name, price, size, color, image, alt, quantity) {
+  this.item_name = name;
+  this.price = price.substring(1, );
+  this.size = size; 
+  this.color = color;
+  this.image = image;
+  this.alt = alt;
+  this.quantity = quantity;
+}
 
 function saveItems(){
   var itemInCart = JSON.parse(localStorage.getItem('itemsInCart'));
   var item_name = document.getElementById('product-name').innerHTML;
   var price = document.getElementById('price').innerHTML;
-  var size = size_item
-  var color = color_item
   var image = document.getElementById('product_image').src;
   var alt = document.getElementById('product_image').alt;
   var quantity = $('.product-quantity input').val();
-
-  var item = {
-      'item_name':item_name, 
-      'price':price.substring(1, ),
-      'size':size,
-      'color':color,
-      'image':image,
-      'alt':alt,
-      'quantity': quantity}
-  console.log(item['quantity']);
-  itemInCart.push(item);
+  var itemObject = new Item(item_name, price, size_item, color_item, image, alt, quantity);
+  itemInCart.push(itemObject);
   localStorage.setItem("itemsInCart", JSON.stringify(itemInCart));
 }
-
 
 // create a product element 
 function createProductElement(i, items) {
@@ -246,8 +246,8 @@ function createProductElement(i, items) {
       var image = document.createElement("div");
       image.className = "product-image";
       var img = document.createElement("img");
-      img.src = items[i]['image'];
-      img.alt = items[i]['alt'];
+      img.src = items[i].image;
+      img.alt = items[i].alt;
       image.appendChild(img);
       product.appendChild(image);
 
@@ -256,13 +256,13 @@ function createProductElement(i, items) {
       details.className="product-details";
       var title = document.createElement("div");
       title.className = "product-title";
-      title.innerHTML = items[i]['item_name'];
+      title.innerHTML = items[i].item_name;
       var size = document.createElement("div");
       size.className = "product-size";
-      size.innerHTML = sizes[items[i]['size']];
+      size.innerHTML = sizes[items[i].size];
       var color = document.createElement("div");
       color.className = "product-color";
-      color.innerHTML = colors[items[i]['color']];
+      color.innerHTML = colors[items[i].color];
       details.appendChild(title);
       details.appendChild(size);
       details.appendChild(color);
@@ -271,7 +271,7 @@ function createProductElement(i, items) {
       // price 
       var price = document.createElement("div");
       price.className = "product-price";
-      price.innerHTML = items[i]['price'];
+      price.innerHTML = items[i].price;
       product.appendChild(price);
 
 
@@ -281,7 +281,7 @@ function createProductElement(i, items) {
       var input = document.createElement("input");
       input.type = "number";
       input.min = "1";
-      input.setAttribute("value", items[i]['quantity']);
+      input.setAttribute("value", items[i].quantity);
       input.setAttribute("onchange", "updateQuantity(this);");
       quantity.appendChild(input);
       product.appendChild(quantity);
@@ -300,12 +300,16 @@ function createProductElement(i, items) {
       // line price 
       var linePrice = document.createElement("div");
       linePrice.className = "product-line-price";
-      linePrice.innerHTML = items[i]['price'];
+      console.log(items[i].quantity);
+      console.log(items[i].price);
+      console.log(items[i].price * items[i].quantity);
+      linePrice.innerHTML = items[i].price * items[i].quantity;
       product.appendChild(linePrice);
 
       var cart = document.getElementById("shopping-cart");
       var totals = document.getElementById("totals");
       cart.insertBefore(product,totals);
+      recalculateCart();
 }
 
 // Update the shopping cart page with items the user selected 
@@ -313,8 +317,9 @@ function updateShoppingCart() {
   var items = JSON.parse(localStorage.getItem("itemsInCart"));
   for (var i=0; i<items.length; i++) {
     createProductElement(i, items);
-    updateQuantity($('.product-quantity input'));
+    
   }
+  //updateQuantity($('.product-quantity input'));
 }
 
 
@@ -390,9 +395,8 @@ function storeCartNumber() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
   var counter = 0;
   for (var i=0; i<items.length; i++) {
-    counter += parseInt(items[i]['quantity']);
+    counter += parseInt(items[i].quantity);
   }
-  console.log(counter);
   var cart_n = document.getElementsByClassName('count');
   cart_n[0].innerHTML = counter;
 }
