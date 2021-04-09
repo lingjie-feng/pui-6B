@@ -164,6 +164,9 @@ function get_color(id) {
 $(document).ready(function() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
   console.log(items);
+  if (items == null) {
+    items = [];
+  }
   var counter = 0;
   for (var i=0; i<items.length; i++) {
     counter += parseInt(items[i].quantity);
@@ -230,6 +233,9 @@ function Item(name, price, size, color, image, alt, quantity) {
 function saveItems() {
   var itemInCart = JSON.parse(localStorage.getItem('itemsInCart'));
   console.log(itemInCart);
+  if (itemInCart == null) {
+    itemInCart = [];
+  }
   var item_name = document.getElementById('product-name').innerHTML;
   var price = document.getElementById('price').innerHTML;
   var image = document.getElementById('product_image').src;
@@ -337,6 +343,9 @@ function createProductElement(i, items) {
 function updateShoppingCart() {
   var items = JSON.parse(localStorage.getItem("itemsInCart"));
   console.log(items);
+  if (items == null) {
+    items = [];
+  }
   for (var i=0; i<items.length; i++) {
     createProductElement(i, items);
     
@@ -416,6 +425,9 @@ function removeItem(removeButton)
 function storeCartNumber() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
   console.log(items);
+  if (items == null) {
+    items = [];
+  }
   var counter = 0;
   for (var i=0; i<items.length; i++) {
     counter += parseInt(items[i].quantity);
