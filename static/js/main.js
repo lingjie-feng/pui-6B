@@ -225,16 +225,36 @@ function Item(name, price, size, color, image, alt, quantity) {
   this.quantity = quantity;
 }
 
-function saveItems(){
+// save items to the shopping cart 
+function saveItems() {
   var itemInCart = JSON.parse(localStorage.getItem('itemsInCart'));
   var item_name = document.getElementById('product-name').innerHTML;
   var price = document.getElementById('price').innerHTML;
   var image = document.getElementById('product_image').src;
   var alt = document.getElementById('product_image').alt;
   var quantity = $('.product-quantity input').val();
-  var itemObject = new Item(item_name, price, size_item, color_item, image, alt, quantity);
-  itemInCart.push(itemObject);
-  localStorage.setItem("itemsInCart", JSON.stringify(itemInCart));
+  if (!isDuplicateItem(item_name, size_item, color_item, quantity, itemInCart)) {
+    var itemObject = new Item(item_name, price, size_item, color_item, image, alt, quantity);
+    itemInCart.push(itemObject);
+    localStorage.setItem("itemsInCart", JSON.stringify(itemInCart));
+  }
+}
+
+// check if the selected item is already in the shopping cart; 
+// if yes, return true
+// if not, return false
+function isDuplicateItem(name, size, color, quantity, itemInCart) {
+  for (var i=0; i<itemInCart.length; i++) {
+    var item = itemInCart[i];
+    if ((item.item_name == name) && (item.size == size) && (item.color == color)) {
+      var n = parseInt(item.quantity) + parseInt(quantity);
+      item.quantity = n;
+      itemInCart[i] = item
+      localStorage.setItem("itemsInCart", JSON.stringify(itemInCart));
+      return true;
+    }
+  }
+  return false;
 }
 
 // create a product element 
@@ -300,10 +320,8 @@ function createProductElement(i, items) {
       // line price 
       var linePrice = document.createElement("div");
       linePrice.className = "product-line-price";
-      console.log(items[i].quantity);
-      console.log(items[i].price);
-      console.log(items[i].price * items[i].quantity);
-      linePrice.innerHTML = items[i].price * items[i].quantity;
+      var n = items[i].price * items[i].quantity
+      linePrice.innerHTML = n.toFixed(2);;
       product.appendChild(linePrice);
 
       var cart = document.getElementById("shopping-cart");
@@ -406,4 +424,53 @@ function updateIndex() {
   for (var i=0; i<x.length; i++) {
     x[i].setAttribute('value', i);
   }
+}
+
+
+
+
+
+/* WISH LIST*/
+// save the item to wishlist
+function saveToWishlist(heart) {
+  var color = heart.innerHTML;
+  if (color == "\u2661") {
+    heart.innerHTML = "\u2665";
+    localStorage.setItem('savedwishlist', "true");
+  } else {
+    heart.innerHTML = "\u2661";
+    localStorage.setItem('savedwishlist', "false");
+  }
+}
+
+// update the wish list with saved items
+function updateWishlist(){
+  var saved = localStorage.getItem('savedwishlist');
+  var item = document.getElementById('product-wishlist');
+  if (saved == 'true') {
+    item.style.display = 'block';
+  } else {
+    item.style.display = 'none';
+  }
+}
+
+// display the saved condition 
+function savedOnDetail() {  
+  var saved = localStorage.getItem('savedwishlist');
+  var heart = document.getElementById('add-to-wishlist');
+  if (saved == 'true') {
+    heart.innerHTML = "\u2665";
+  } else {
+    heart.innerHTML = "\u2661";
+  }
+}
+
+
+// remove the item from wishlist
+function removeItemWishlist(removeButton){
+  /* Remove row from DOM and recalc cart total */
+  var productRow = $(removeButton).parent().parent();
+  productRow.slideUp(300, function() {
+    productRow.remove();
+  });
 }

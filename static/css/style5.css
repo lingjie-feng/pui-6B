@@ -5,6 +5,7 @@
 	 float: left;
 	 width: 20%;
 }
+
  .product-details {
 	 float: left;
 	 width: 37%;
@@ -264,4 +265,9 @@
 .product-stock {
 	float: left;
 	width: 10%;
+}
+
+
+.product-wishlist {
+	display:none;
 }

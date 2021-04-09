@@ -46,6 +46,7 @@
             <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
             <span class="count"> 0 </span>
           </div>
+          <div class="wishlist" onclick = "location.href='wishlist.html';"> &#9829; </div>
         </div>
     </header>
 
@@ -105,7 +106,7 @@
                 
                 <br>
                 <div class="purchase">
-                    <button class="cart-btn" onclick="saveItems()">Add To Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="check-cart" onclick="location.href='shopping_cart.html';">Check My Cart</span>
+                    <button class="cart-btn" onclick="saveItems()">Add To Cart</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id="add-to-wishlist" onclick="saveToWishlist(this)">&#9825;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="check-cart" onclick="location.href='shopping_cart.html';">Check My Cart</span>
                 </div>
 
             </div>
@@ -139,6 +140,7 @@
     </div>
      <!-- Review section End -->
 
+  <script> savedOnDetail();</script>
   </body>
 
 </html>

@@ -45,8 +45,10 @@
          <div class="cart">
             <i class="fa fa-shopping-cart" id="cart-icon" style="font-size:24px" onclick="location.href='shopping_cart.html';"></i>
             <span class="count"> 0 </span>
-          </div>
+         </div>
+         <div class="wishlist" onclick = "location.href='wishlist.html';"> &#9829; </div>
         </div>
+        
     </header>
     
     <!-- the body part of the page -->
@@ -65,56 +67,28 @@
           </div>
         
           <!-- single product start -->
-          <div class="product">
+          <div class="product" id="product-wishlist">
             <div class="product-image">
-              <img src="static/images/dog_harness.jpg" alt="dog harness">
+              <img src="static/images/large_dog_strawberry.jpg" alt="dog gps tracker">
             </div>
             <div class="product-details">
-              <div class="product-title"> Dog harness 1 </div>
+              <div class="product-title"> Dog GPS Tracker </div>
             </div>
-            <div class="product-price"> 13.33 </div>
+            <div class="product-price"> 15.55 </div>
             <div class="product-stock"> In Stock </div>
             <div class="product-removal">
-              <button class="remove-product" onclick="removeItem(this);">
+              <button class="remove-product" onclick="removeItemWishlist(this);">
                 Remove
               </button>
             </div>
             <div class="product-add-to-cart"> <i class="fa fa-shopping-cart" style="font-size:24px"></i> </div>
           </div>
           <!-- single product start -->
-        
-          <div class="product">
-            <div class="product-image">
-              <img src="static/images/dog-helmet.jpg" alt="dog helmet">
-            </div>
-            <div class="product-details">
-              <div class="product-title"> Dog helmet 1 </div>
-            </div>
-            <div class="product-price"> 11.23 </div>
-            <div class="product-stock"> In Stock </div>
-            <div class="product-removal">
-              <button class="remove-product" onclick="removeItem(this);">
-                Remove
-              </button>
-            </div>
-            <div class="product-add-to-cart"> <i class="fa fa-shopping-cart" style="font-size:24px"></i> </div>
-          </div>
 
         </div>
     </div>
     
-    
-    <!-- footer for subscription -->
-    <footer>
-      <div id="subscript">
-        <div class="subscription">
-          <input id="input-box" type="email" name="emailaddress" value="email address" onclick="hidevalue()">
-          <button class="submit-button body-text" id="subcribe-btn" type="submit" onclick="display_sub()"> subscribe </button>
-        </div>
-        <p class="sub center body-text"> Subscribe with your email to get latest information on Muddy Paws products. </p>
-      </div>
-    </footer>
-
+    <script> updateWishlist();</script>
     </body>
 
 </html>

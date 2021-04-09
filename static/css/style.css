@@ -249,7 +249,7 @@ footer p{
 
 .login {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-bottom: 8%;
 }
 
@@ -383,6 +383,12 @@ footer p{
 }
 
 #cart-icon:hover {
+  cursor:pointer;
+  color: rgb(243, 186, 112);
+}
+
+
+.wishlist:hover{
   cursor:pointer;
   color: rgb(243, 186, 112);
 }

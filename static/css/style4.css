@@ -365,3 +365,13 @@
   cursor:pointer;
   color: rgb(243, 186, 112);
 }
+
+
+#add-to-wishlist {
+  font-size: 27px;
+}
+
+#add-to-wishlist:hover {
+  color:rgb(243, 186, 112);
+  cursor: pointer;
+}
