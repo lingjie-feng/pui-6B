@@ -228,6 +228,7 @@ function Item(name, price, size, color, image, alt, quantity) {
 // save items to the shopping cart 
 function saveItems() {
   var itemInCart = JSON.parse(localStorage.getItem('itemsInCart'));
+  console.log(itemInCart);
   var item_name = document.getElementById('product-name').innerHTML;
   var price = document.getElementById('price').innerHTML;
   var image = document.getElementById('product_image').src;
@@ -244,6 +245,7 @@ function saveItems() {
 // if yes, return true
 // if not, return false
 function isDuplicateItem(name, size, color, quantity, itemInCart) {
+  console.log(itemInCart);
   for (var i=0; i<itemInCart.length; i++) {
     var item = itemInCart[i];
     if ((item.item_name == name) && (item.size == size) && (item.color == color)) {
