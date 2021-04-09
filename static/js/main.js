@@ -163,6 +163,7 @@ function get_color(id) {
 // Add to cart feature
 $(document).ready(function() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
+  console.log(items);
   var counter = 0;
   for (var i=0; i<items.length; i++) {
     counter += parseInt(items[i].quantity);
@@ -335,6 +336,7 @@ function createProductElement(i, items) {
 // Update the shopping cart page with items the user selected 
 function updateShoppingCart() {
   var items = JSON.parse(localStorage.getItem("itemsInCart"));
+  console.log(items);
   for (var i=0; i<items.length; i++) {
     createProductElement(i, items);
     
@@ -413,6 +415,7 @@ function removeItem(removeButton)
 
 function storeCartNumber() {
   var items = JSON.parse(localStorage.getItem('itemsInCart'));
+  console.log(items);
   var counter = 0;
   for (var i=0; i<items.length; i++) {
     counter += parseInt(items[i].quantity);
