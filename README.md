@@ -4,6 +4,8 @@ Assignments 6B for the 05430 PUI course.
 **Note:**
 I only implemented one product detail page, so for testing the shopping cart functionality, please add different sizes, colors, and/or quantities of that single product to the shopping cart once or multiple times. 
 
+**Github IO**
+https://lingjie-feng.github.io/pui-6B/
 
 **Regrading request: 6A points back:**
 point loss: the number of items added to cart was not correctly displayed
